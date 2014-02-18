@@ -48,7 +48,7 @@ object TimeOffset {
           case "two" => 2
           case "a couple" => 2
           case "a few" => 3
-          case _ => m.group(1).toInt
+          case _ => m.group(2).toInt
         }
         Some(new TimeOffset(amount, m.group(3)))
       case _ =>
