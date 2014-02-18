@@ -50,7 +50,7 @@ object TimeOffset {
           case "a few" => 3
           case _ => m.group(2).toInt
         }
-        Some(new TimeOffset(amount, m.group(3)))
+        Some(new TimeOffset(amount, m.group(4)))
       case _ =>
         None
     }
