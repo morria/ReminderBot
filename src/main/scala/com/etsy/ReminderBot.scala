@@ -43,13 +43,6 @@ class ReminderBot(name:String, channels:List[String]) extends PircBot() with Act
       case _ => null
     }
 
-    /**
-     * Reconnect when disconnected
-     */
-    override def onDisconnect() {
-      reconnect();
-    }
-
     // List reminders
     """^.ls$""".r.findFirstMatchIn(message) match {
       case Some(m:Match) =>
@@ -65,6 +58,11 @@ class ReminderBot(name:String, channels:List[String]) extends PircBot() with Act
       case _ => null
     }
   }
+
+  /**
+   * Reconnect when disconnected
+   */
+  override def onDisconnect() : Unit = reconnect()
 
   /**
    * Listen for reminders maturing, and announce them to the

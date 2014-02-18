@@ -39,9 +39,9 @@ object TimeOffset {
    * Get a TimeOffset from a string such as "5 seconds"
    */
   def apply(message:String) : Option[TimeOffset] =
-    """(a|an|one|two|a couple|a few|[0-9]+)\s+((sec(ond)?|min(ute)?|hour|day|week|month)s?)""".r.findFirstMatchIn(message.toLowerCase) match {
+    """(in|for|me|wait|be)\s+(a|an|one|two|a couple|a few|[0-9]+)\s+((sec(ond)?|min(ute)?|hour|day|week|month)s?)""".r.findFirstMatchIn(message.toLowerCase) match {
       case Some(m:Match) =>
-        val amount:Int = m.group(1) match {
+        val amount:Int = m.group(2) match {
           case "a" => 1
           case "an" => 1
           case "one" => 1
