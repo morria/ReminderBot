@@ -44,7 +44,7 @@ class ReminderBot(name:String, channels:List[String]) extends PircBot() with Act
     }
 
     // List reminders
-    """^.ls$""".r.findFirstMatchIn(message) match {
+    """^\.ls$""".r.findFirstMatchIn(message) match {
       case Some(m:Match) =>
         Reminder.reminders(this).foreach {
           reminder:Reminder =>
